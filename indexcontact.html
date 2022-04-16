@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
+ <link href="D:/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- my css -->
+<link rel="stylesheet" href="style.css">
+<script src="D:/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+    <title>KULINER NUSANTARA</title>
+  </head>
+  <body id="home">
+ <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#D0EBFF; shadow">
+  <div class="container">
+    <a class="navbar-brand text-primary"href="#">KULINER NUSANTARA</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#page">Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#populer">Populer</a>
+        </li>
+        <li class="nav-item">                       
+            <a class="nav-link" href="#contact">contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+   
+   <!-- Contact Me -->
+   <section id="contact mb-5">
+    <div class="container">
+      <div class="row text-center mb-5" style="background-color:#D0EBFF;" >
+        <div class="col" >
+          <h2>Contact Me</h2>       
+          
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="alert alert-warning alert-dismissible fade show d-none My-Alert" role="alert">
+<strong>Terima kasih!</strong>  Data anda sudah berhasil disimpan.
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+          <form name="WPU ADI">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="pesan" class="form-label">Pesan</label>
+              <textarea class="form-control" id="Pesan" rows="3" name="pesan"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+            
+<button class="btn btn-primary btn-loading d-none" type="button" disabled>
+<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+Loading...
+</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Akhir Contact Me -->
+
+ <script >src="D:/bootstrap-5.0.2/dist/js/bootstrap.min.js" </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+<script> const scriptURL = 'https://script.google.com/macros/s/AKfycbzg_05lErqSpiy4udxWUxPdC7aqZURCbBtNXsHY31xP-fYYrIi7hgk-nGE2XHuH-J0b/exec'
+    const form = document.forms['WPU ADI']
+  const btnKirim = document.querySelector (".btn-kirim");
+  const btnLoading =  document.querySelector (".btn-loading");
+  const MyAlert =  document.querySelector (".My-Alert")
+   form.addEventListener('submit', e => {
+    e.preventDefault()
+    //Ketika tombol kirim di klik
+    //Hilangkan tombol kirim munculkan tombol loading
+
+    btnLoading.classList.toggle("d-none")
+    btnKirim.classList.toggle ("d-none")
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        //Ketika tombol kirim di klik
+    //Hilangkan tombol loading munculkan tombol kirim
+
+    btnLoading.classList.toggle("d-none");
+    btnKirim.classList.toggle ("d-none");
+
+    //Munculkan  Alert
+    MyAlert.classList.toggle ("d-none")  ;   
+
+    //reset form
+    form.reset ();
+        console.log('Success!', response)})
+      .catch(error => console.error('Error!', error.message))
+  })
+
+</body>
+</html>
